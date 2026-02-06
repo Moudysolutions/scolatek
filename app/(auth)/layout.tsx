@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { GraduationCap } from 'lucide-react'
+import Image from 'next/image'
 
 export default function AuthLayout({
     children,
@@ -12,9 +12,13 @@ export default function AuthLayout({
             <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-12 flex-col justify-between">
                 <div>
                     <Link href="/" className="flex items-center gap-3 text-white">
-                        <div className="p-2 bg-white/10 rounded-xl backdrop-blur-sm">
-                            <GraduationCap className="h-8 w-8" />
-                        </div>
+                        <Image
+                            src="/logo.png"
+                            alt="ScolaTek"
+                            width={48}
+                            height={48}
+                            className="rounded-xl"
+                        />
                         <span className="text-2xl font-bold">ScolaTek</span>
                     </Link>
                 </div>
@@ -59,9 +63,13 @@ export default function AuthLayout({
                     {/* Mobile Logo */}
                     <div className="lg:hidden mb-8 text-center">
                         <Link href="/" className="inline-flex items-center gap-2 text-blue-600">
-                            <div className="p-2 bg-blue-100 rounded-xl">
-                                <GraduationCap className="h-6 w-6" />
-                            </div>
+                            <Image
+                                src="/logo.png"
+                                alt="ScolaTek"
+                                width={40}
+                                height={40}
+                                className="rounded-xl"
+                            />
                             <span className="text-xl font-bold">ScolaTek</span>
                         </Link>
                     </div>

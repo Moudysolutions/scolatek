@@ -1,13 +1,13 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useAuth } from '@/hooks/use-auth'
 import type { UserRole } from '@/types/database.types'
 import {
     LayoutDashboard,
     Users,
-    GraduationCap,
     Building2,
     Calendar,
     ClipboardList,
@@ -45,7 +45,7 @@ const navItems: NavItem[] = [
     // Director
     { label: 'Personnel', href: '/dashboard/director/staff', icon: Users, roles: ['director'] },
     { label: 'Classes', href: '/dashboard/director/classes', icon: School, roles: ['director'] },
-    { label: 'Élèves', href: '/dashboard/director/students', icon: GraduationCap, roles: ['director'] },
+    { label: 'Élèves', href: '/dashboard/director/students', icon: Users, roles: ['director'] },
     { label: 'Paiements', href: '/dashboard/director/payments', icon: CreditCard, roles: ['director'] },
     { label: 'Configuration', href: '/dashboard/director/settings', icon: Settings, roles: ['director'] },
 
@@ -99,9 +99,13 @@ export function Sidebar() {
             {/* Logo */}
             <div className="p-4 border-b border-gray-200">
                 <Link href="/dashboard" className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <GraduationCap className="h-6 w-6 text-white" />
-                    </div>
+                    <Image
+                        src="/logo.png"
+                        alt="ScolaTek"
+                        width={40}
+                        height={40}
+                        className="rounded-xl flex-shrink-0"
+                    />
                     {!collapsed && (
                         <span className="text-xl font-bold text-gray-900">ScolaTek</span>
                     )}
@@ -120,8 +124,8 @@ export function Sidebar() {
                             key={index}
                             href={item.href}
                             className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${isActive
-                                    ? 'bg-blue-50 text-blue-700'
-                                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                ? 'bg-blue-50 text-blue-700'
+                                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                 }`}
                             title={collapsed ? item.label : undefined}
                         >
